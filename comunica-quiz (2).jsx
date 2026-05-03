@@ -119,29 +119,19 @@ function buildEmailHtml({ heading, paragraphs, videoTitle, ps, instagram }) {
 // el código se mantiene exactamente igual — solo cambia el contexto
 // de ejecución.
 async function sendDiagnosticEmail({ profile, toEmail, instagram }) {
-  const template = EMAIL_TEMPLATES[profile];
-  if (!template) throw new Error(`Perfil desconocido: ${profile}`);
-
-  const response = await fetch("https://api.resend.com/emails", {
+  const response = await fetch("/api/send-email", {
     method: "POST",
-    headers: {
-      "Authorization": `Bearer ${RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: FROM_EMAIL,
-      to: [toEmail],
-      subject: template.subject,
-      html: template.html({ instagram }),
-    }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ profile, toEmail, instagram }),
   });
-
+ 
+  const data = await response.json();
+ 
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Resend ${response.status}: ${errorText}`);
+    throw new Error(data?.error ?? `Error ${response.status}`);
   }
-
-  return await response.json();
+ 
+  return data;
 }
 
 // ────────────────────────────────────────────────────────────
