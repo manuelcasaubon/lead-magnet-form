@@ -30,7 +30,6 @@ import {
 // entonces se puede testear con el sandbox de Resend.
 // ────────────────────────────────────────────────────────────
 
-const RESEND_API_KEY = "re_PiQWKsV9_FEqvL345EgFNXfwvdy8aKbgd";
 const FROM_EMAIL = "Comunica Tu Marca <onboarding@resend.dev>";
 
 // HTML templates — uno por perfil. Estilados inline para máxima
