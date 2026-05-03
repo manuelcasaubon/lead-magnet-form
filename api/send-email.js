@@ -1,7 +1,7 @@
 // api/send-email.js
 // Vercel Serverless Function — Envío de emails via Resend
 // Variables de entorno requeridas en Vercel:
-//   RESEND_API_KEY  →  tu API key de Resend
+//   resend_api_key  →  tu API key de Resend
 
 const FROM_EMAIL = "Comunica Tu Marca <onboarding@resend.dev>";
 // Una vez verificado tu dominio en Resend, reemplazá por:
@@ -118,9 +118,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: `Perfil desconocido: ${profile}` });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
+  const apiKey = process.env.resend_api_key;
   if (!apiKey) {
-    console.error("RESEND_API_KEY no configurada en las variables de entorno");
+    console.error("resend_api_key no configurada en las variables de entorno");
     return res.status(500).json({ error: "Configuración de servidor incompleta" });
   }
 

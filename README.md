@@ -32,7 +32,7 @@ Abre en http://localhost:3000
 Crear un archivo `.env.local` en la raíz:
 
 ```
-RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+resend_api_key=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 En Vercel ya las tenés cargadas, para local las necesitás también.
@@ -44,7 +44,7 @@ En Vercel ya las tenés cargadas, para local las necesitás también.
 3. Framework preset: **Vite**
 4. Build command: `npm run build`
 5. Output directory: `dist`
-6. Confirmar que `RESEND_API_KEY` está en Environment Variables
+6. Confirmar que `resend_api_key` está en Environment Variables
 
 El archivo `vercel.json` se encarga de rutear `/api/*` a las serverless functions
 y todo lo demás al `index.html` (SPA routing).
