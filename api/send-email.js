@@ -3,9 +3,7 @@
 // Variables de entorno requeridas en Vercel:
 //   resend_api_key  →  tu API key de Resend
 
-const FROM_EMAIL = "Comunica Tu Marca <onboarding@resend.dev>";
-// Una vez verificado tu dominio en Resend, reemplazá por:
-// const FROM_EMAIL = "Manu <manu@tudominio.com>";
+const FROM_EMAIL = "Manu <manu@info.comunicatumarca.com>";
 
 // ─── Templates HTML ────────────────────────────────────────────────────────
 
